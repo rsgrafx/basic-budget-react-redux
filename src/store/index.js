@@ -1,22 +1,17 @@
 import {createStore,
-  // applyMiddleWare,
-  // compose,
-  combineReducers
+  applyMiddleware,
+  compose
 } from 'redux'
-// import thunk from 'redux-thunk'
+import thunk from 'redux-thunk'
+import reducer from  '../reducers'
+import storeInit from './base'
 
-const expenses = (state = [], action) => {
-  return state
-}
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const income = (state = [], action) => {
-  return state
-}
+const store = createStore(
+  reducer, storeInit,
+  composeEnhancers(applyMiddleware(thunk))
 
-const reducer = combineReducers({expenses, income})
-
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-
-const store = createStore(reducer)
+)
 
 export default store

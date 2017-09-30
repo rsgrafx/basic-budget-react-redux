@@ -17,13 +17,9 @@ const BudgetBuilderForm = (props) => {
       <button className="btn-filled btn-danger">Add Loan </button>
       <MiscExpenses />
       <button className="btn-filled btn-danger">Add Misc Expense </button>
-      <div className="form-group">
-        <input type="submit" className="form-control btn-success" value="Save Budget" />
-      </div>
       </form>
     </div>
   )
 }
-
 
 export default BudgetBuilderForm

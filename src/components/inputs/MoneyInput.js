@@ -7,7 +7,13 @@ const MoneyInput = (props) => {
         <label className="sr-only">Amount (in dollars)</label>
         <div className="input-group">
           <div className="input-group-addon">$</div>
-          <input type="text" className="form-control" id="exampleInputAmount" placeholder="Amount" />
+          <input
+            type="text"
+            id={props.elementID}
+            className="form-control"
+            placeholder="Amount"
+            onChange={props.func}
+            />
           <div className="input-group-addon">.00</div>
         </div>
       </div>)
