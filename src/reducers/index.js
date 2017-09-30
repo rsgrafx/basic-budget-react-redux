@@ -4,9 +4,10 @@ import {
 
 import {expenses, expense, misc_expenses as misc} from './expenses'
 import {filterAndReAdd} from '../utils/calculator'
+import Do from  '../actions/types'
 
 const income = (state = [], action) => {
-  if (action.type === "INCOME") {
+  if (action.type === Do.INCOME) {
     const [key] = Object.keys(action.payload)
     return state.filter((item) => item.name !== key).concat({name: key, amount: action.payload[key]})
   } else {
@@ -16,7 +17,7 @@ const income = (state = [], action) => {
 
 const loans = (state = [], action) => {
   switch (action.type) {
-    case "ADD_LOAN":
+    case Do.ADD_LOAN:
       return filterAndReAdd(state, action.payload)
     default:
       return state;
@@ -25,7 +26,7 @@ const loans = (state = [], action) => {
 
 const currentIncome = (state = {}, action) => {
   switch (action.type) {
-    case "INCOME":
+    case Do.INCOME:
       return {...state, ...action.payload}
     default:
       return state
@@ -47,9 +48,9 @@ const item = (state = {}, action) => {
 
 const totals = (state = [], action) => {
   switch (action.type) {
-    case "ADD_TOTAL_EXPENSE":
+    case Do.ADD_TOTAL_EXPENSE:
       return filterAndReAdd(state, action.payload)
-    case "GET_ALL_TOTALS":
+    case Do.GET_ALL_TOTALS:
       return state
     default:
       return state

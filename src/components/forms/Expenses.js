@@ -1,17 +1,16 @@
 import React from 'react'
 import MoneyInput from '../inputs/MoneyInput'
-
+import {connect} from 'react-redux'
 import store from '../../store'
+import {newExpense} from '../../actions/expenses'
 
+/*
 const handleChange = (e) => {
-  callToStore({name: e.target.id, amount: e.target.value})
+  store.dispatch(newExpense({name: e.target.id, amount: e.target.value}))
 }
+*/
 
-const callToStore = (data) => {
-  store.dispatch({type: "EXPENSE", payload: data})
-}
-
-const Expenses = ({expenseInputs}) => {
+const Expenses = ({expenses, expenseInputs, handleOtherChange}) => {
   return(
     <div>
       <h3>Expenses:</h3>
@@ -19,10 +18,22 @@ const Expenses = ({expenseInputs}) => {
         key={expense.name}
         elementID={expense.key}
         name={expense.name}
-        func={handleChange}
+        func={handleOtherChange}
         />)}
     </div>
   )
 }
+const mapDispatchToProps = dispatch => (
+  {
+    handleOtherChange(e) {
+      dispatch(newExpense({name: e.target.id, amount: e.target.value}))
+    }
+  }
+)
 
-export default Expenses
+/*
+state => ({
+  expenses: state.expenses
+})
+*/
+export default connect(null, mapDispatchToProps)(Expenses)

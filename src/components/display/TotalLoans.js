@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {total} from  '../../utils/calculator'
 
 const TotalLoans = ({loans, totalLoans}) => {
-
   return(
     <div>
       <div className="panel panel-default">
@@ -19,7 +18,6 @@ const TotalLoans = ({loans, totalLoans}) => {
         </div>
       </div>
     </div>
-
   )
 }
 

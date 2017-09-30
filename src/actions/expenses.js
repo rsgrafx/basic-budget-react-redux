@@ -1,6 +1,11 @@
+import Do from './types'
 
 export const getExpenses = () => {
   return {
-    type: "GET_EXPENSES"
+    type: Do.GET_EXPENSES
   }
+}
+
+export const newExpense = (data) => {
+  return {type: Do.EXPENSE, payload: data}
 }

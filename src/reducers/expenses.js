@@ -1,9 +1,11 @@
 import {filterAndReAdd} from '../utils/calculator'
+import Do from '../actions/types'
+
 export const expenses = (state = [], action) => {
   switch (action.type) {
-    case "GET_EXPENSES":
+    case Do.GET_EXPENSES:
       return state
-    case "EXPENSE":
+    case Do.EXPENSE:
       return filterAndReAdd(state, action.payload)
     default:
       return state
@@ -12,7 +14,7 @@ export const expenses = (state = [], action) => {
 
 export const expense = (state = {}, action) => {
   switch (action.type) {
-    case "EXPENSE":
+    case Do.EXPENSE:
       return {...state, ...action.payload}
     default:
       return state
@@ -21,7 +23,7 @@ export const expense = (state = {}, action) => {
 
 export const misc_expenses = (state = [], action) =>  {
   switch (action.type) {
-    case "MISC_EXPENSE":
+    case Do.MISC_EXPENSE:
       return filterAndReAdd(state, action.payload)
     default:
       return state;
