@@ -14,7 +14,6 @@ const ExtraExpenses = ({misc, total_spent}) => {
             {misc.map((item) => (<li key={item.name}><b>{item.name}</b> <span className="pull-right">${item.amount}</span></li>))}
           </ul>
           <hr />
-          {/* <div> Total: <span className="pull-right">{totalAmountSpent(total(misc))}</span></div> */}
           <div> Total: <span className="pull-right">{total_spent}</span></div>
         </div>
       </div>
@@ -24,10 +23,5 @@ const ExtraExpenses = ({misc, total_spent}) => {
 
 export default connect(
   state => ({misc: state.misc, total_spent: total(state.misc)}),
-  dispatch => ({
-    totalAmountSpent(amount) {
-      dispatch({type: "ADD_TOTAL_EXPENSE", payload: {name: 'misc', amount: amount}})
-      return amount
-    }
-  })
+  null
   )(ExtraExpenses)

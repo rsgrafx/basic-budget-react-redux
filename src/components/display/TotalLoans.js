@@ -22,5 +22,6 @@ const TotalLoans = ({loans, totalLoans}) => {
 }
 
 export default connect(
-  state => ({loans: state.loans, totalLoans: total(state.loans)}), null
+  state => ({loans: state.loans, totalLoans: total(state.loans)}),
+  null
 )(TotalLoans)

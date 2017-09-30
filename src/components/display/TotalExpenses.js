@@ -5,7 +5,6 @@ import {total} from  '../../utils/calculator'
 const TotalExpenses = ({expenses, total_expenses}) => {
   return(
     <div>
-
       <div className="panel panel-default">
         <div className="panel-heading">
           <h4>Total Expenses:</h4>

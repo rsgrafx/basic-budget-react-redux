@@ -10,7 +10,7 @@ const handleChange = (e) => {
 }
 */
 
-const Expenses = ({expenses, expenseInputs, handleOtherChange}) => {
+const Expenses = ({expenses, expenseInputs, handleChange}) => {
   return(
     <div>
       <h3>Expenses:</h3>
@@ -18,14 +18,14 @@ const Expenses = ({expenses, expenseInputs, handleOtherChange}) => {
         key={expense.name}
         elementID={expense.key}
         name={expense.name}
-        func={handleOtherChange}
+        func={handleChange}
         />)}
     </div>
   )
 }
 const mapDispatchToProps = dispatch => (
   {
-    handleOtherChange(e) {
+    handleChange(e) {
       dispatch(newExpense({name: e.target.id, amount: e.target.value}))
     }
   }
